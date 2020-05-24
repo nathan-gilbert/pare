@@ -1,0 +1,105 @@
+# conjunction rules
+#
+A -> CC NP
+B -> CC AP
+C -> CC VP
+D -> CC AdvP
+E -> CC NN
+F -> CC NNS
+G -> CC NNP
+H -> CC NPS
+I -> CC PRP
+J -> CC PRP$
+K -> CC PDT
+L -> CC JJ
+M -> CC JJR
+N -> CC JJS
+O -> CC VB
+P -> CC VBD
+Q -> CC VBG
+R -> CC VBN
+T -> CC VBP
+U -> CC VBZ
+V -> CC RBR
+W -> CC RBS
+Sen -> CC S
+#
+NP -> NN E
+NP -> NNS F
+NP -> NN F
+NP -> NNS E
+NP -> NNP G
+NP -> NPS H
+NP -> NPS F
+NP -> NNS H
+#
+NP -> PDT K
+NP -> PRP I
+NP -> PRP E
+NP -> NN I
+#
+NP -> PRP$ J
+NP -> JJ J
+NP -> JJR J
+NP -> PRP$ L
+NP -> PRP$ M
+#
+NP -> NP A
+NP -> NN A
+NP -> NP E
+NP -> NP G
+NP -> NNP A
+NP -> PRP A
+NP -> CP I
+#
+#
+AP -> JJ L
+AP -> JJR M
+AP -> JJS N
+AP -> JJ M
+AP -> JJR L
+AP -> JJ N
+AP -> JJS L
+AP -> JJR N
+AP -> JJS M
+#
+AP -> AP B
+AP -> JJ B
+AP -> AP L
+AP -> AP M
+AP -> JJR B
+AP -> AP N
+AP -> JJS B
+# tests show the 4 above haven't occurred during tests yet (in real world
+# texts: occurrences are uknown)
+#
+#
+VP -> VB O
+VP -> VBD P
+VP -> VBG Q
+VP -> VBN R
+VP -> VBP T
+VP -> VBZ U
+#
+VP -> VB C
+VP -> VP O
+VP -> VBD C
+VP -> VP P
+VP -> VBG C
+VP -> VP Q
+VP -> VBN C
+VP -> VP R
+VP -> VBP C
+VP -> VP T
+VP -> VBZ C
+VP -> VP U
+#
+#
+AdvP -> RBR V
+AdvP -> RBS W
+#
+AdvP -> AdvP D
+AdvP -> VBN D
+#
+#
+S -> S Sen

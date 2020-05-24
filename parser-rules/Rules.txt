@@ -1,0 +1,216 @@
+# this file is the base file for our CNF grammar
+#
+CC -> cc
+CD -> cd
+DT -> dt
+EX -> ex
+IN -> in
+JJ -> jj
+JJR -> jjr
+JJS -> jjs
+MD -> md
+NN -> nn
+NNS -> nns
+NNP -> nnp
+NNPS -> nnps
+PDT -> pdt
+POS -> pos
+PRP -> prp
+PRP$ -> prp$
+RB -> rb
+RBR -> rbr
+RBS -> rbs
+RP -> rp
+TO -> to
+VB -> vb
+VBD -> vbd
+VBG -> vbg
+VBN -> vbn
+VBP -> vbp
+VBZ -> vbz
+WDT -> wdt
+WP -> wp
+WP$ -> wp$
+WRB -> wrb
+#
+A1 -> RBS JJ
+A2 -> VP PP
+#
+NP -> NN
+NP -> NNS
+NP -> NNP
+NP -> NNPS
+NP -> PRP
+# a particle doesn't seem to appear alone; it is then a NN
+AP -> JJ
+AP -> JJR
+AP -> JJS
+AdvP -> RB
+VP -> VB
+VP -> VBD
+PP -> IN
+#
+NP -> DT PP
+NP -> DT NN
+NP -> DT NNS
+NP -> DT NNPS
+NP -> DT CD
+NP -> DT NP
+#
+NP -> CD NN
+NP -> CD NNS
+NP -> CD NNPS
+NP -> JJ NN
+NP -> JJ NNS
+NP -> JJ NNP
+NP -> JJ NNPS
+NP -> JJR NN
+NP -> JJR NNS
+NP -> JJR NNP
+NP -> JJR NNPS
+NP -> JJS NN
+NP -> JJS NNS
+NP -> JJS NNP
+NP -> JJS NNPS
+#
+NP -> NN NN
+NP -> NN NNS
+NP -> NNP NN
+NP -> NNP NNS
+NP -> NNP NNPS
+NP -> NNP NP
+NP -> NP NP
+#
+NP -> PRP NP
+NP -> PRP$ NN
+NP -> PRP$ NNS
+#
+NP -> NP PP
+NP -> AP NN
+NP -> AP NP
+NP -> NP AP
+NP -> CD NP
+NP -> NNP CD
+NP -> RB NP
+#NP -> NNP VP
+#
+PP -> IN IN
+PP -> IN VBN
+PP -> IN PRP
+PP -> IN NN
+PP -> IN NNS
+PP -> IN NNP
+PP -> IN NP
+PP -> IN VP
+PP -> IN S
+#
+PP -> PP PP
+PP -> PP NN
+PP -> PP NNS
+PP -> PP PP
+PP -> TO VP
+PP -> TO VB
+PP -> TO NP
+PP -> TO NNP
+PP -> WP VP
+PP -> WRB S
+#
+PP -> PP A2
+#
+AP -> DT A1
+AP -> AdvP JJ
+AP -> AdvP JJR
+AP -> AdvP JJS
+AP -> RBS JJ
+AP -> PRP VBP
+AP -> WDT VBD
+#
+AdvP -> RB RB
+AdvP -> RB JJ
+AdvP -> RB JJR
+AdvP -> RB JJS
+AdvP -> PRP$ VBP
+AdvP -> PRP VBP
+AdvP -> PRP VP
+AdvP -> JJ PP
+AdvP -> JJR PP
+AdvP -> JJS PP
+AdvP -> WP AdvP
+AdvP -> RP NP
+AdvP -> NP RB
+#
+VP -> VB VBG
+VP -> VBZ VBN
+VP -> VBD VBN
+VP -> VBP VBN
+VP -> VBP VBG
+VP -> VP VBG
+VP -> VP VB
+VP -> VP VBN
+VP -> VB VP
+VP -> VBZ VP
+#
+VP -> MD VB
+VP -> MD VP
+VP -> VBD RP
+VP -> VB PP
+VP -> VBD PP
+VP -> VBP PP
+VP -> VBZ PP
+VP -> VBN PP
+VP -> VP PP
+#
+VP -> VB NN
+VP -> VB NNS
+VP -> VB NNP
+VP -> VBP NN
+VP -> VBZ NN
+VP -> VP NN
+VP -> VBD NP
+VP -> VBZ NP
+VP -> VB NP
+VP -> VBP NP
+VP -> VBG NP
+VP -> VP NP
+#
+VP -> VBD PRP
+VP -> VBP PRP
+VP -> VP PRP
+#
+VP -> VBD JJ
+VP -> VBP JJ
+VP -> VBG JJ
+VP -> JJ VBZ
+#
+VP -> VP AdvP
+VP -> VBZ AdvP
+VP -> VBN AdvP
+VP -> VBD AdvP
+VP -> VBP AdvP
+VP -> AdvP VP
+VP -> AdvP VBD
+VP -> AdvP VBZ
+#
+VP -> VBZ RB
+VP -> VBD RB
+VP -> VBG RB
+VP -> RB VBP
+#
+S -> NP VP
+S -> VP NP
+S -> NP VBD
+# (above): Eat the soup.
+S -> DT VP
+S -> VP
+S -> VB
+S -> NNP
+# (above) this actually should be tagged VBP, but is not
+S -> PP S
+S -> CD VP
+S -> AdvP S
+S -> PRP VBD
+S -> PRP VBZ
+S -> PRP VBP
+S -> PRP VP
+S -> EX VP
+#

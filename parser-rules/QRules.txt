@@ -1,0 +1,29 @@
+# this is the question rules file
+VP -> VBP VB
+VP -> VB VB
+#
+S -> B1 S
+S -> B2 S
+S -> WP VP
+S -> NNP S 
+# (above) must end in ?
+S -> MD NP
+# (above) from tagger on input: Can a bird fly?
+S -> MD S
+S -> VBD S
+S -> WRB S
+S -> WP VP
+S -> QEX NP
+S -> WRB PRP
+S -> QWP VP
+S -> PP VP
+#
+QEX -> VBZ EX
+QNUM -> WRB JJ
+QWDT -> WDT NN
+QWP -> WP NN
+QWP -> QWP PP
+PP -> IN QWDT
+B1 -> NNP PRP
+B2 -> WP MD
+#
